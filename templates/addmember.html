@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body style="background:url('{% static 'images/addmem.jpg' %}');
+            background-size:cover;
+            background-attachment:fixed;
+            background-position:center;">
+<link rel="stylesheet" href="{% static 'css/addmember.css' %}">
+<div class="container">
+    <h2>User Details</h2>
+
+    <form action="{% url 'addmember' %}" method="post">
+        {% csrf_token %}
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Enter your name" required>
+
+        <label>Age:</label>
+        <input type="number" name="age" placeholder="Enter your age" required>
+
+        <label>Income:</label>
+        <input type="number" name="income" placeholder="Enter your income">
+
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
